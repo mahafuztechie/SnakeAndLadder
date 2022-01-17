@@ -10,7 +10,7 @@ namespace SnakeAndLadder
 
     public class Snake_Ladder
     {
-        int firstPlayerPosition = 0;
+        int FirstPlayerPosition = 0;
         int MAX_POSITION = 100;
 
         Random random = new Random();
@@ -18,10 +18,10 @@ namespace SnakeAndLadder
         public void game()
         {
             //First player starting from position 0
-            firstPlayerPosition = 0;
+            FirstPlayerPosition = 0;
 
             //Creating while loop to reach the maximum value
-            while (firstPlayerPosition <= MAX_POSITION)
+            while (FirstPlayerPosition <= MAX_POSITION)
             {
                 //Taking random value of Dice from 1-6
                 int DiceValue = random.Next(1, 7);
@@ -31,17 +31,30 @@ namespace SnakeAndLadder
                 if (ranOption == 0)
                 {
                     Console.WriteLine("no play");
-                    firstPlayerPosition += firstPlayerPosition;
+                    FirstPlayerPosition += FirstPlayerPosition;
                 }
                 else if (ranOption == 1)
                 {
                     Console.WriteLine("Ladder");
-                    firstPlayerPosition = firstPlayerPosition + DiceValue;
+                    FirstPlayerPosition = FirstPlayerPosition + DiceValue;
+
+                    if (FirstPlayerPosition + DiceValue <= 100)
+                    {
+                        FirstPlayerPosition = FirstPlayerPosition + DiceValue;
+
+                        Console.WriteLine("Ladder");
+
+                    }
+
+                    else
+                    {
+                        Console.WriteLine(" ramin in same position");
+                    }
                 }
                 else if (ranOption == 2)
                 {
                     Console.WriteLine("Snake");
-                    firstPlayerPosition = firstPlayerPosition - DiceValue;
+                    FirstPlayerPosition = FirstPlayerPosition - DiceValue;
                 }
                 else
                 {
@@ -50,4 +63,4 @@ namespace SnakeAndLadder
             }
         }
     }
-}f
+}
