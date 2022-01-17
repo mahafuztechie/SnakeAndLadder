@@ -6,12 +6,19 @@ using System.Threading.Tasks;
 
 namespace SnakeAndLadder
 {
-    internal class SnakeLadder
+   
+  public class Snake_Ladder
     {
         int firstPlayerPosition;
-        public int game()
+
+        Random random = new Random();
+        public void game()
         {
-          return  firstPlayerPosition = 0;
+            //First player starting from position 0
+            firstPlayerPosition = 0;
+
+            //Taking random value of Dice from 1-6
+            int diceValue = random.Next(1, 7);
         }
     }
 }
